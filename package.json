@@ -1,0 +1,25 @@
+{
+  "name": "eu-yacht-vat-matrix",
+  "version": "1.0.0",
+  "description": "Static EU yacht pre-deposit checklist: VAT-paid evidence, T2L / Union goods status, and CE / RCD docs — doors to FairHelm CapEx scanner and €49 listing review. Zero database.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nareyko/eu-yacht-vat-matrix.git"
+  },
+  "homepage": "https://nareyko.github.io/eu-yacht-vat-matrix/",
+  "scripts": {
+    "test": "node --test vat-matrix.test.mjs",
+    "serve": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "yacht",
+    "vat",
+    "t2l",
+    "ce-marking",
+    "rcd",
+    "eu",
+    "fairhelm"
+  ]
+}

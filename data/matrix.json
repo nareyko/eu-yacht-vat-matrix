@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "updated": "2026-10-15",
+  "title": "EU yacht pre-deposit document matrix",
+  "disclaimer": "Orienting buyer checklist only — not legal, tax, or customs advice. National practice differs. Make completion conditional on matching documents before wiring a deposit.",
+  "doors": {
+    "capex_scanner": {
+      "label": "CapEx scanner — paste the listing",
+      "url": "https://fairhelm.com/en/yachts/tools/capex-scanner/"
+    },
+    "listing_review": {
+      "label": "Listing review €49 — remote red-flag note",
+      "url": "https://fairhelm.com/en/yachts/services/listing-review/"
+    }
+  },
+  "axes": {
+    "vat_evidence": {
+      "label": "Strongest VAT / fiscal evidence seller shows",
+      "options": [
+        {
+          "id": "invoice_vat",
+          "label": "Original first-sale / dealer invoice with VAT line + payment trail"
+        },
+        {
+          "id": "import_vat",
+          "label": "Import declaration (free circulation) + import VAT / duty receipt"
+        },
+        {
+          "id": "t2l_only",
+          "label": "T2L / T2LF (or equivalent Union-goods proof) only"
+        },
+        {
+          "id": "broker_claim",
+          "label": "Listing says “VAT paid” / broker letter — no primary docs"
+        },
+        {
+          "id": "none",
+          "label": "No VAT evidence offered"
+        }
+      ]
+    },
+    "buyer_context": {
+      "label": "Buyer & boat context",
+      "options": [
+        {
+          "id": "eu_resident_eu_berth",
+          "label": "EU-resident buyer · boat already in EU waters"
+        },
+        {
+          "id": "eu_resident_outside",
+          "label": "EU-resident buyer · boat outside EU / third-country flag path"
+        },
+        {
+          "id": "non_eu_temp",
+          "label": "Non-EU buyer · temporary admission / non-resident use"
+        }
+      ]
+    },
+    "ce_status": {
+      "label": "CE / Recreational Craft Directive paperwork",
+      "options": [
+        {
+          "id": "doc_and_plate",
+          "label": "CE plate on hull + builder’s Declaration of Conformity (DoC)"
+        },
+        {
+          "id": "plate_only",
+          "label": "CE plate visible · DoC missing"
+        },
+        {
+          "id": "pre_directive",
+          "label": "Built before RCD / CE era for that hull (legacy craft)"
+        },
+        {
+          "id": "missing",
+          "label": "No CE plate · no DoC · not clearly pre-directive"
+        }
+      ]
+    }
+  },
+  "evidence_notes": [
+    {
+      "id": "vat_paid_phrase",
+      "title": "“VAT paid” on a listing",
+      "body": "Market shorthand, not a legal category. Demand primary evidence matched to HIN / CIN and registry papers."
+    },
+    {
+      "id": "t2l_role",
+      "title": "T2L / T2LF",
+      "body": "Customs proof of Union-goods status after checks. Strong for free circulation; not automatically the same as a first-sale VAT invoice. Ask when customs may require Union status proof."
+    },
+    {
+      "id": "ce_role",
+      "title": "CE / RCD 2013/53/EU",
+      "body": "Recreational craft 2.5–24 m placed on the Union market need CE marking and DoC. Non-EU builds without CE often need post-construction assessment before EU use — CapEx and delay risk."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "clean_eu_build",
+      "title": "Clean EU first sale",
+      "vat_evidence": "invoice_vat",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "doc_and_plate",
+      "tags": ["baseline"]
+    },
+    {
+      "id": "imported_cleared",
+      "title": "Third-country build, already imported",
+      "vat_evidence": "import_vat",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "doc_and_plate",
+      "tags": ["import"]
+    },
+    {
+      "id": "t2l_without_invoice",
+      "title": "T2L on file, invoice archive thin",
+      "vat_evidence": "t2l_only",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "doc_and_plate",
+      "tags": ["customs"]
+    },
+    {
+      "id": "broker_vat_paid",
+      "title": "Broker “VAT paid”, no papers yet",
+      "vat_evidence": "broker_claim",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "plate_only",
+      "tags": ["red-flag"]
+    },
+    {
+      "id": "outside_eu_eu_buyer",
+      "title": "EU buyer, boat still outside",
+      "vat_evidence": "none",
+      "buyer_context": "eu_resident_outside",
+      "ce_status": "missing",
+      "tags": ["import-path"]
+    },
+    {
+      "id": "non_eu_temp",
+      "title": "Non-EU buyer, temporary use",
+      "vat_evidence": "none",
+      "buyer_context": "non_eu_temp",
+      "ce_status": "doc_and_plate",
+      "tags": ["temporary-admission"]
+    },
+    {
+      "id": "legacy_pre_ce",
+      "title": "Legacy pre-directive hull",
+      "vat_evidence": "invoice_vat",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "pre_directive",
+      "tags": ["legacy"]
+    },
+    {
+      "id": "no_ce_modern",
+      "title": "Modern hull, no CE trail",
+      "vat_evidence": "broker_claim",
+      "buyer_context": "eu_resident_eu_berth",
+      "ce_status": "missing",
+      "tags": ["pca-risk"]
+    }
+  ],
+  "sources": [
+    {
+      "title": "European Commission — Guidance on pleasure craft (customs / Union status)",
+      "url": "https://taxation-customs.ec.europa.eu/document/download/8c62e3be-807f-4607-bb1e-9ff46db7d97e_en?filename=Guidance_pleasure_craft.pdf"
+    },
+    {
+      "title": "Directive 2013/53/EU — Recreational craft and personal watercraft",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32013L0053"
+    }
+  ]
+}

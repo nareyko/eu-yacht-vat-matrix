@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EU Yacht VAT / T2L / CE Matrix — before you deposit | FairHelm</title>
+  <meta name="description" content="Static pre-deposit checklist for used yachts in the EU: VAT-paid evidence, T2L / Union-goods status, and CE / RCD paperwork in under 10 seconds. Free, offline-capable, MIT. Doors to CapEx scanner and €49 listing review on fairhelm.com.">
+  <link rel="canonical" href="https://nareyko.github.io/eu-yacht-vat-matrix/">
+  <meta name="theme-color" content="#0b6e6a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=Outfit:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "EU Yacht VAT / T2L / CE Matrix",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "url": "https://nareyko.github.io/eu-yacht-vat-matrix/",
+    "description": "Static pre-deposit checklist: VAT-paid evidence, T2L / Union goods, CE / RCD docs for EU yacht buyers.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FairHelm",
+      "url": "https://fairhelm.com"
+    },
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/licenses/MIT"
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">FairHelm · open checklist</span>
+        <nav class="brand-links" aria-label="FairHelm doors">
+          <a href="https://fairhelm.com/en/yachts/tools/capex-scanner/">CapEx scanner</a>
+          <a href="https://fairhelm.com/en/yachts/services/listing-review/">Listing review €49</a>
+          <a href="https://github.com/nareyko/eu-yacht-vat-matrix">GitHub</a>
+        </nav>
+      </div>
+      <h1>VAT paid · T2L · CE — before the deposit</h1>
+      <p class="lede">Three answers. Instant GO / HOLD / STOP on fiscal trail, Union-goods proof, and CE paperwork. No account. No database. Data stays in your browser.</p>
+      <p class="disclaimer">Orienting buyer checklist only — not legal, tax, or customs advice. National practice differs. Condition completion on documents that match the hull.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="ask-heading">
+      <h2 id="ask-heading">Ask the matrix</h2>
+      <div class="controls">
+        <label class="field" for="vat_evidence">
+          Strongest VAT / fiscal evidence
+          <select id="vat_evidence"></select>
+        </label>
+        <label class="field" for="buyer_context">
+          Buyer &amp; boat context
+          <select id="buyer_context"></select>
+        </label>
+        <label class="field" for="ce_status">
+          CE / RCD paperwork
+          <select id="ce_status"></select>
+        </label>
+      </div>
+      <div class="toolbar">
+        <button type="button" id="btn-reset">Reset to thin listing</button>
+        <span class="sr-only">Verdict updates as you change the selects.</span>
+      </div>
+    </section>
+
+    <section class="panel" id="verdict" aria-live="polite" data-overall="stop">
+      <p>Loading matrix…</p>
+    </section>
+
+    <section class="panel" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">What the three axes mean</h2>
+      <div class="notes" id="evidence-notes"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="table-heading">
+      <h2 id="table-heading">Scenario matrix</h2>
+      <p class="disclaimer" id="matrix-updated-line">Matrix version date: <span id="matrix-updated"></span></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Scenario</th>
+              <th scope="col">VAT</th>
+              <th scope="col">T2L / Union</th>
+              <th scope="col">CE</th>
+              <th scope="col">Overall</th>
+            </tr>
+          </thead>
+          <tbody id="scenario-body"></tbody>
+        </table>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">Static SSOT: <a href="./data/matrix.json"><code>data/matrix.json</code></a>. Rules: <code>vat-matrix.mjs</code>.</p>
+    </section>
+
+    <footer class="site-footer">
+      <nav aria-label="Next steps">
+        <a href="https://fairhelm.com/en/yachts/tools/capex-scanner/">CapEx scanner</a>
+        <a href="https://fairhelm.com/en/yachts/services/listing-review/">Listing review €49</a>
+        <a href="https://github.com/nareyko/eu-yacht-vat-matrix">Source (MIT)</a>
+      </nav>
+      <p>Sources:</p>
+      <ul id="sources-list"></ul>
+      <p>© FairHelm · MIT · matrix updated for Nordic / Baltic used-cruiser buyers.</p>
+    </footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
